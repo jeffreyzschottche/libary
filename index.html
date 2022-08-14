@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f4da.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="script.js" async></script>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+        <button type="button" class="btn btn-outline-secondary">Login</button>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+            <div class="col text-center">
+        <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#addBookModal">
+            + Add New Book
+          </button>
+          <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addBookModalLabel">Add info for new book</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="script.js" method='post'>
+                      <div class="form-group">
+                        <label for="booktitle" class="sr-only">Book Title</label>
+                        <input class="form-control" type="text" placeholder="Name of the book" name="booktitle" autofocus required>
+                        <label for="author" class="sr-only">Author</label>
+                        <input class="form-control" type="text" placeholder="Name of the author" name="author" required>
+                        <label for="pages" class="sr-only">Pages</label>
+                        <input class="form-control" type="number" placeholder="Number of pages" name="pages" required>
+                        <label for="readit">Have you read the book?</label>
+                        <select class="form-control" name="readit" required>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select> 
+                        <label for="imageURL">Place LINK/URL adress of bookimage</label>   
+                        <input type="url" class='form-control' placeholder="https://www.website.com/image-029" name='imageURL'>           
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="addNewBook">Add Book</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+      </div>
+</body>
+</html>
