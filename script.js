@@ -12,7 +12,9 @@ let bookArray = [
     }
 ];
 
-
+if(!localStorage.getItem('books')){
+    localStorage.setItem('books', JSON.stringify(bookArray));
+}
 
 
 
@@ -58,9 +60,13 @@ addBookButton.addEventListener('click', () => {
         // bookArray.push(book);
 
         // get & set localstorage bookArr
-        let localBooks = JSON.parse(localStorage.getItem('books'));
-        localBooks.push(book);
-        localStorage.setItem('books', JSON.stringify(localBooks));
+        // check if localStoragee is already there, otherwise create it.
+        // if(localStorage.getItem('books'))
+            let localBooks = JSON.parse(localStorage.getItem('books'));
+            localBooks.push(book);
+            localStorage.setItem('books', JSON.stringify(localBooks));
+        
+        
 
 
         // hide modal after submit
