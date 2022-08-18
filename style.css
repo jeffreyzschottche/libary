@@ -1,0 +1,32 @@
+.bookParent {
+    width: 300px;
+    background: linear-gradient(#e66465, #9198e5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.bookParent img {
+    width: 200px;
+    height: 200px;
+}
+
+.bookParent button {
+    margin: 1em;
+}
+
+.books {
+    width: 900px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+}
+
+.bookcontainer{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}

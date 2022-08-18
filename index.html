@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <script src="script.js" async></script>
 </head>
-<body>
+<body onload='renderBooks()'>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
         <span class="navbar-brand mb-0 h1">Libary</span>
@@ -19,9 +19,9 @@
         </div>
       </nav>
       <div class="container">
-        <div class="row">
+        <div class="row bookgrid">
             <div class="col text-center">
-        <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#addBookModal">
+        <button type="button" class="btn btn-primary mt-4 mb-4" data-bs-toggle="modal" data-bs-target="#addBookModal">
             + Add New Book
           </button>
           <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
@@ -56,6 +56,11 @@
               </div>
             </div>
           </div>
+          <div class="bookcontainer">
+          <div id="books" class='books'>
+
+          </div>
+         </div>
           </div>
           </div>
       </div>
