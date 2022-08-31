@@ -1,39 +1,60 @@
 let addBookButton = document.querySelector('#addNewBook');
 let bookGrid = document.querySelector('.books');
 
-// dummy book
-let bookArray = [
-    {
-        title: "A hitchhickers guide to the galaxy",
-        author: "Douglas Adams",
-        pages: 224,
-        url: "https://media.s-bol.com/NO9wjnv9Z09p/550x832.jpg",
-        readBool: true,
+class newBooks {
+    constructor(author, title, pages, url, readBool) {
+      this.author = author;
+      this.title = title;
+      this.pages = pages;
+      this.url = url;
+      this.readBool = readBool;
     }
+    hasRead(){
+        if (document.querySelector('select[name="readit"]').value === 'Yes') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+  }
+  
+  // Usage:
+  let newBook = new newBooks("A hitchhickers guide to the galaxy","Douglas Adams",224,"https://media.s-bol.com/NO9wjnv9Z09p/550x832.jpg", true);
+  console.log(newBook);
+
+
+  // dummy book
+let bookArray = [
+    // {
+    //     newBook.title,
+    //     author: "Douglas Adams",
+    //     pages: 224,
+    //     url: "https://media.s-bol.com/NO9wjnv9Z09p/550x832.jpg",
+    //     readBool: true,
+    // }
+    newBook
 ];
 
-if(!localStorage.getItem('books')){
+if (!localStorage.getItem('books')) {
     localStorage.setItem('books', JSON.stringify(bookArray));
 }
 
+// // constructor maken voor een boek
+// // pushen naar array als object
+// function Book(title, author, pages, ) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+// }
 
-
-// constructor maken voor een boek
-// pushen naar array als object
-function Book(title, author, pages, ) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-}
-
-// prototype voor read value boolean
-Book.prototype.hasRead = function () {
-    if (document.querySelector('select[name="readit"]').value === 'Yes') {
-        return true;
-    } else {
-        return false;
-    }
-}
+// // prototype voor read value boolean
+// Book.prototype.hasRead = function () {
+//     if (document.querySelector('select[name="readit"]').value === 'Yes') {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 addBookButton.addEventListener('click', () => {
     // get input values
@@ -47,7 +68,7 @@ addBookButton.addEventListener('click', () => {
         return;
     } else {
         // check if book has been read and if their added a URL 
-        const book = new Book(bookTitle.value, bookAuthor.value, bookPages.value);
+        const book = new newBooks(bookTitle.value, bookAuthor.value, bookPages.value);
         if (bookURL.value.length > 0) {
             book.url = bookURL.value;
         }
@@ -62,11 +83,11 @@ addBookButton.addEventListener('click', () => {
         // get & set localstorage bookArr
         // check if localStoragee is already there, otherwise create it.
         // if(localStorage.getItem('books'))
-            let localBooks = JSON.parse(localStorage.getItem('books'));
-            localBooks.push(book);
-            localStorage.setItem('books', JSON.stringify(localBooks));
-        
-        
+        let localBooks = JSON.parse(localStorage.getItem('books'));
+        localBooks.push(book);
+        localStorage.setItem('books', JSON.stringify(localBooks));
+
+
 
 
         // hide modal after submit
@@ -150,7 +171,7 @@ function deleteBookFromLS() {
     // find index of book in array
     const indexOfObject = localBooks.findIndex(book => {
         return book.title === parentBook;
-      });
+    });
 
     // delete from array and set ls back
     localBooks.splice(indexOfObject, 1);
